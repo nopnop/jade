@@ -5,6 +5,10 @@
  Jade is a high performance template engine heavily influenced by [Haml](http://haml-lang.com)
  and implemented with JavaScript for [node](http://nodejs.org). For discussion join the [Google Group](http://groups.google.com/group/jadejs).
 
+## Test drive
+
+  You can test drive Jade online [here](http://naltatis.github.com/jade-syntax-docs).
+
 ## README Contents
 
 - [Features](#a1)
@@ -50,7 +54,7 @@
   - code is escaped by default for security
   - contextual error reporting at compile &amp; run time
   - executable for compiling jade templates via the command line
-  - html 5 mode (using the _!!! 5_ doctype)
+  - html 5 mode (the default doctype)
   - optional memory caching
   - combine dynamic and static tag classes
   - parse tree manipulation via _filters_
@@ -64,7 +68,7 @@
   - filters
     - :stylus must have [stylus](http://github.com/LearnBoost/stylus) installed
     - :less must have [less.js](http://github.com/cloudhead/less.js) installed
-    - :markdown must have [markdown-js](http://github.com/evilstreak/markdown-js) installed or [node-discount](http://github.com/visionmedia/node-discount)
+    - :markdown must have [markdown-js](http://github.com/evilstreak/markdown-js), [node-discount](http://github.com/visionmedia/node-discount), or [marked](http://github.com/chjj/marked) installed
     - :cdata
     - :coffeescript must have [coffee-script](http://jashkenas.github.com/coffee-script/) installed
   - [Emacs Mode](https://github.com/brianc/jade-mode)
@@ -90,7 +94,6 @@ via npm:
 
 ```bash
 $ npm install jade
-$ man jade
 ```
 
 <a name="a4"/>
@@ -155,12 +158,13 @@ fn(locals);
 
 ### Options
 
- - `self`      Use a `self` namespace to hold the locals. _false by default_
+ - `self`      Use a `self` namespace to hold the locals _(false by default)_
  - `locals`    Local variable object
  - `filename`  Used in exceptions, and required when using includes
  - `debug`     Outputs tokens and function body generated
  - `compiler`  Compiler to replace jade's default
  - `compileDebug`  When `false` no debug instrumentation is compiled
+ - `pretty`    Add pretty-indentation whitespace to output _(false by default)_
 
 <a name="a6"/>
 ## Syntax
@@ -609,25 +613,19 @@ To add a doctype simply use `!!!`, or `doctype` followed by an optional value:
 !!!
 ```
 
-Will output the _transitional_ doctype, however:
-
-```jade
-!!! 5
-```
-
 or
 
 ```jade
-!!! html
+doctype
 ```
 
-or
+Will output the _html 5_  doctype, however:
 
 ```jade
-doctype html
+!!! transitional
 ```
 
-Will output the _html 5_ doctype.
+Will output the _transitional_ doctype.
 
 Doctypes are case-insensitive, so the following are equivalent:
 
@@ -653,8 +651,8 @@ Below are the doctypes defined by default, which can easily be extended:
 ```js
 var doctypes = exports.doctypes = {
   '5': '<!DOCTYPE html>',
+  'default': '<!DOCTYPE html>',
   'xml': '<?xml version="1.0" encoding="utf-8" ?>',
-  'default': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">',
   'transitional': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">',
   'strict': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
   'frameset': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">',
@@ -1268,6 +1266,8 @@ Examples:
 
 ## Tutorials
 
+  - cssdeck interactive [Jade syntax tutorial](http://cssdeck.com/labs/learning-the-jade-templating-engine-syntax)
+  - cssdeck interactive [Jade logic tutorial](http://cssdeck.com/labs/jade-templating-tutorial-codecast-part-2)
   - in [Japanese](http://blog.craftgear.net/4f501e97c1347ec934000001/title/10%E5%88%86%E3%81%A7%E3%82%8F%E3%81%8B%E3%82%8Bjade%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3)
 
 <a name="a18"/>

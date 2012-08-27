@@ -1,4 +1,56 @@
 
+0.27.2 / 2012-08-07 
+==================
+
+  * Revert "fixing string interpolation escaping #731", problems reported
+
+0.27.1 / 2012-08-06 
+==================
+
+  * fix attribute interpolation escaping #731
+  * fix string interpolation escaping #731
+
+0.27.0 / 2012-07-26 
+==================
+
+  * added ability to pass in json file to `--obj`
+  * add preliminary `each` `else` support. Closes #716
+  * fix doctype bug overlooked in #712
+  * fix stripping of utf-8 BOMs
+
+0.26.3 / 2012-06-25 
+==================
+
+  * Update version of commander that supports node v0.8.
+
+0.26.2 / 2012-06-22 
+==================
+
+  * Added --options alias of --obj
+  * Added reserved word conflict prevention in Google's Closure Compiler 
+  * Added tag interpolation. Closes #657
+  * Allow the compiled client to use it's own jade util functions [3rd-Eden]
+  * Fixed `attrs()` escape bug [caseywebdev]
+
+0.26.1 / 2012-05-27 
+==================
+
+  * Changed default doctype to __html5__
+  * Performance: statically compile attrs when possible [chowey]
+  * Fixed some class attribute merging cases
+  * Fixed so `block` doesn't consume `blockquotes` tag [chowey]
+  * Fixed backslashes in text nodes [chowey]
+  * Fixed / in text. Closes #638
+
+0.26.0 / 2012-05-04 
+==================
+
+  * Added package.json __component__ support
+  * Added explicit self-closing tag support. Closes #605
+  * Added `block` statement
+  * Added mixin tag-like behaviour [chowey]
+  * Fixed mixins with extends [chowey]
+
 0.25.0 / 2012-04-18 
 ==================
 
